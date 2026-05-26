@@ -1,0 +1,43 @@
+* List of observatory locations for use by LTVT
+*   (blank lines and lines with '*' in the first column are ignored)
+
+*   The observatory name can include any characters -- including commas
+*   Longitudes and latitudes must be in decimal degrees (NOT degrees-minutes-seconds)
+*   Important: you must use '.' (period) for for the decimal point
+
+* List items in this format (using commas to separate items):
+* ObservatoryEastLongitude_degrees, ObservatoryNorthLatitude_degrees, ObservatoryElevation_meters, ObservatoryName
+
+* 00.0000, 00.0000, 0, Your Backyard
+* 00.0000, 00.0000, 0, Your Remote Dark Site
+11.7858, 55.2858, 40, Henrik's UCLA
+-117.894079, 33.643879, 22.59, Jim's house 
+11.871500, 45.4003, 49, Galileo's house in Padua
+249.2680, 32.4167, 2520, Catalina Station, Tucson (Consolidated Lunar Atlas site) 
+116.4, 39.9, 0.0, Beijing
+-4.143, 50.37, 20.0, PlymouthUK
+26.1224, -80.1373, 20.0, Fort Laurderdale Florida
+-110.97, 32.33, 20.0, TusconArizona
+-89.5, 45.5, 20.0, WisconsinNorth
+8.14, 49.87, 20.0, Saulheim Germany
+-82.4, 29.8, 20.0, "Ocala, Florida"
+-96.94, 35.26, 20.0, Tecumseh Okhlahoma - Wes Higgins
+249.2680, 32.4167, 2520, "Cork, Ireland"
+-8.47, 51.89, 20, Cork Official Coordinates
+12.56, 41.87, 20.0, Italy
+23.73, 37.98, 20.0, Athens
+-82.14, 29.19, 20, "Howard Eskildsen, Ocal, Florida"
+5.82, 45.66, 1500, Mont Du Chat
+5.76, 45.73, 200, Nattages
+7.143, 50.8177, 1500, "Troisdorf, Germany"
+-19.35, 25.42, 98.53, AS15-M-1010 SatelliteView
+14.87, 55.16, 20, "Bornholm, Denmark"
+7.1430, 50.8177, 10, "Germany, Troisdorf"
+-98.35, 39.50, 20, "Lebanon, Kansas (USA Geographic Centre)"
+-87.63, 41.88, 20, "Chicago, Illinois"
+-87.63, 41.88, 20, "SouthWest,London"
+0.12, 51.42, 20, "SouthWest,London"
+-8.47, 51.89, 20, "Chicago,Ilionoise"
+-87.81, 41.87, 20, "Chicago,Ilionoise"
+-98.35, 39.50, 20, Cypress Texas
+-81.51, 27.66, 20, Florida

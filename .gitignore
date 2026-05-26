@@ -1,2 +1,18 @@
 .scratch
 .DS_Store
+
+# Large binary asset files (ltvt/original_source)
+# lunar texture maps
+*.bmp
+# NASA DEM raster data
+*.IMG
+# JPL DE405 ephemeris binary chunks
+*.405
+# compiled Windows binaries
+*.exe
+# compiled HTML help files
+*.chm
+# source archives (source is extracted alongside)
+*.zip
+# Delphi compiled resource files
+*.res

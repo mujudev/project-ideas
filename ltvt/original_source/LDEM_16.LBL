@@ -1,0 +1,131 @@
+PDS_VERSION_ID            = "PDS3"
+/*** This label describes three data files along with map projection        */
+/*** information. The files described have the same name as this label      */
+/*** but different extensions. They are:                                    */
+/***    .IMG - PDS image file, stored as a binary two-dimensional array     */
+/***    .JP2 - The same image stored with JPEG2000 compression              */
+/***    .XML - An auxiliary text file in XML, provided to aid display of    */
+/***           the JPEG2000 image with certain image processing software    */
+/*** The map projection information includes parameters that are specific   */
+/*** to this image. They are intended to be used with the general map       */
+/*** projection descriptions in the file indicated by the keyword           */
+/*** ^DATA_SET_MAP_PROJECTION. That file is found in the CATALOG directory  */
+/*** of this archive.                                                       */
+
+/*** GENERAL DATA DESCRIPTION PARAMETERS ***/
+PRODUCT_VERSION_ID        = "V1"
+DATA_SET_ID               = "LRO-L-LOLA-4-GDR-V1.0"
+PRODUCT_ID                = "LDEM_16"
+INSTRUMENT_HOST_NAME      = "LUNAR RECONNAISSANCE ORBITER"
+INSTRUMENT_NAME           = "LUNAR ORBITER LASER ALTIMETER"
+INSTRUMENT_ID             = "LOLA"
+COORDINATE_SYSTEM_NAME    = "MEAN EARTH/POLAR AXIS OF DE421"
+MISSION_PHASE_NAME        = {"COMMISSIONING","NOMINAL MISSION"}
+TARGET_NAME               = MOON
+START_TIME                = 2009-07-13T17:33:17.246
+STOP_TIME                 = 2009-12-17T23:59:59.193
+PRODUCT_CREATION_TIME     = 2010-03-15T00:00:00
+PRODUCER_ID               = LRO_LOLA_TEAM
+PRODUCER_FULL_NAME        = "DAVID E. SMITH"
+PRODUCER_INSTITUTION_NAME = "GODDARD SPACE FLIGHT CENTER"
+DESCRIPTION               = "This data product is a shape map (radius)
+   of the Moon at a resolution of 16 pixels per degree, based on altimetry 
+data acquired by the LOLA instrument. The preliminary LOLA Laser data are 
+the source for this data set. Since the altitude of the LRO spacecraft was 
+higher than the 30-70 km orbit for which LOLA was designed, many of the 
+ranges are noise. The ground tracks were interpolated using the Generic 
+Mapping Tools programs 'surface' and 'grdblend'.  Map values are referred 
+to a radius of 1737400 m.
+
+This label describes three objects.  The first is an IMG file in the form
+of a binary table with one row for each 0.0625 degree latitude. The second is
+a JP2 file of the same filename, that uses a jpeg 2000 compression to 
+render the image.  The third is an auxiliary xml file that contains 
+extensible markup language that is interpreted by GDAL readers (www.gdal.org)
+"
+
+OBJECT                    = UNCOMPRESSED_FILE
+FILE_NAME                 = "LDEM_16.IMG"
+RECORD_TYPE               = FIXED_LENGTH
+FILE_RECORDS              = 2880
+RECORD_BYTES              = 11520
+
+OBJECT                    = IMAGE
+  NAME                    = HEIGHT
+  DESCRIPTION             = "Each sample represents height relative to a
+   reference radius (OFFSET) and is generated using preliminary LOLA data
+   produced by the LOLA team."
+  LINES                   = 2880
+  LINE_SAMPLES            = 5760
+  SAMPLE_TYPE             = LSB_INTEGER
+  SAMPLE_BITS             = 16
+  UNIT                    = METER
+  SCALING_FACTOR          = 0.5
+  OFFSET                  = 1737400.
+
+/* NOTE:                                                                   */
+/* Conversion from Digital Number to HEIGHT, i.e. elevation in meters, is: */
+/* HEIGHT = (DN * SCALING_FACTOR).                                         */
+/* The conversion from Digital Number to PLANETARY_RADIUS in meters is:    */
+/* PLANETARY_RADIUS = (DN * SCALING_FACTOR) + OFFSET                       */
+/* where OFFSET is the radius of a reference sphere.                       */
+/* The planetopotential TOPOGRAPHY is PLANETARY_RADIUS - GEOID_RADIUS,     */
+/* where GEOID_RADIUS is derived from a gravitational equipotential model. */
+/* By convention, the average GEOID_RADIUS at the equator is OFFSET.       */
+
+END_OBJECT                = IMAGE
+END_OBJECT                = UNCOMPRESSED_FILE
+
+OBJECT                    = COMPRESSED_FILE
+  FILE_NAME               = "LDEM_16.JP2"
+  RECORD_TYPE             = UNDEFINED
+  FILE_RECORDS            = UNK
+  ENCODING_TYPE           = "JP2"
+  INTERCHANGE_FORMAT      = BINARY
+  UNCOMPRESSED_FILE_NAME  = "LDEM_16.IMG"
+  REQUIRED_STORAGE_BYTES  = "18145750"
+  ^DESCRIPTION            = "JP2INFO.TXT"
+END_OBJECT                = COMPRESSED_FILE
+
+OBJECT                    = AUX_FILE
+  FILE_NAME               = "LDEM_16.XML"
+  RECORD_TYPE             = STREAM
+  FILE_RECORDS            = UNK
+  DESCRIPTION             = "This is an auxiliary file accompanying
+       the JPEG2000 file. It contains metadata in XML format that
+       is useful for displaying the image using a GDAL supported tool."
+END_OBJECT                = AUX_FILE
+
+OBJECT                    = IMAGE_MAP_PROJECTION
+ ^DATA_SET_MAP_PROJECTION = "DSMAP.CAT"
+ MAP_PROJECTION_TYPE      = "SIMPLE CYLINDRICAL"
+ KEYWORD_LATITUDE_TYPE    = "PLANETOCENTRIC"
+
+ A_AXIS_RADIUS            = 1737.4 <km>
+ B_AXIS_RADIUS            = 1737.4 <km>
+ C_AXIS_RADIUS            = 1737.4 <km>
+ FIRST_STANDARD_PARALLEL  = "N/A"
+ SECOND_STANDARD_PARALLEL = "N/A"
+ POSITIVE_LONGITUDE_DIRECTION = "EAST"
+ CENTER_LATITUDE          = 0.0 <deg>
+ CENTER_LONGITUDE         = 180.0 <deg>
+ REFERENCE_LATITUDE       = "N/A"
+ REFERENCE_LONGITUDE      = "N/A"
+ LINE_FIRST_PIXEL         = 1
+ LINE_LAST_PIXEL          = 2880
+ SAMPLE_FIRST_PIXEL       = 1
+ SAMPLE_LAST_PIXEL        = 5760
+ MAP_PROJECTION_ROTATION  = 0.0
+ MAP_RESOLUTION           = 16.0 <pix/deg>
+ MAP_SCALE                = 1.895 <km/pix>
+ MAXIMUM_LATITUDE         = 90.0 <deg>
+ MINIMUM_LATITUDE         = -90.0 <deg>
+ WESTERNMOST_LONGITUDE    = 0.0 <deg>
+ EASTERNMOST_LONGITUDE    = 360.0 <deg>
+ LINE_PROJECTION_OFFSET   = 1440.5
+ SAMPLE_PROJECTION_OFFSET = 2880.5
+ COORDINATE_SYSTEM_TYPE   = "BODY-FIXED ROTATING"
+ COORDINATE_SYSTEM_NAME   = "MEAN EARTH/POLAR AXIS OF DE421"
+END_OBJECT                = IMAGE_MAP_PROJECTION
+
+END
